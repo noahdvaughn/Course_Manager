@@ -10,7 +10,7 @@
 export default {
   name: 'CourseCard',
   props: {
-    courses: {}
+    name: String
   }
 }
 </script>
