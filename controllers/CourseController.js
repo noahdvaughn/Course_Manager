@@ -2,7 +2,7 @@ const { Course } = require('../models')
 
 const CreateCourse = async (req, res) => {
   try {
-    const response = await Course.create({ ...req, body })
+    const response = await Course.create({ ...req.body })
     res.status(200).send(response)
   } catch (error) {
     throw error

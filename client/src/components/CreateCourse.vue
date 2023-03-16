@@ -1,7 +1,7 @@
 <template>
   <div>
     <form @submit="CreateCourse">
-      <h4>Course Name</h4>
+      <h4>Add Course below</h4>
       <input v-model="course_name">
       <button>Add Course</button>
     </form>
