@@ -4,12 +4,14 @@
         <div v-for="course in courses" :key="course.id">
             <CourseCard :name="course.name" />
         </div>
+        <CreateCourse/>
     </div>
 </template>
   
 <script>
 import axios from 'axios';
 import CourseCard from '@/components/CourseCard.vue';
+import CreateCourse from '@/components/CreateCourse.vue';
 
 export default {
     name: 'ViewCourses',
@@ -17,7 +19,8 @@ export default {
         courses: []
     }),
     components: {
-        CourseCard
+        CourseCard,
+        CreateCourse
     },
     mounted() {
         this.getAllCourses()
