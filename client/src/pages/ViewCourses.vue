@@ -1,31 +1,29 @@
 <template>
     <div>
-      <h1>View Courses</h1>
-      <ul>
-        <li v-for="course in courses" :key="course.id">{{ course.name }}</li>
-      </ul>
+        <h1>View Courses</h1>
+        <div v-for="course in courses" :key="course.id">
+            <h1>{{ course.name }}</h1>
+        </div>
     </div>
-  </template>
+</template>
   
-  <script>
-    import Vue from 'vue';
-    import axios from 'axios';
-  
-    export default {
-      data() {
-        return {
-          courses: []
+<script>
+import Vue from 'vue';
+import axios from 'axios';
+
+export default {
+    data: () => ({
+        courses: []
+    }),
+    mounted() {
+        this.getAllCourses()
+    },
+    methods: {
+        async getAllCourses() {
+            const res = await axios.get('/api/courses')
+            this.courses = res.data
         }
-      },
-      mounted() {
-        axios.get('/api/courses')
-          .then(response => {
-            this.courses = response.data;
-          })
-          .catch(error => {
-            console.log(error);
-          });
-      }
     }
-  </script>
+}
+</script>
   
