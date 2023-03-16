@@ -1,7 +1,7 @@
 {
   "development": {
 
-    "username": "haticeyorukoglu",
+    "username": "jakubsoroka",
     "password": null,
     "database": "course_manager_development",
     "host": "127.0.0.1",
@@ -9,7 +9,7 @@
   },
   "test": {
 
-    "username": "haticeyorukoglu",
+    "username": "jakubsoroka",
     "password": null,
     "database": "database_test",
     "host": "127.0.0.1",
@@ -17,7 +17,7 @@
   },
   "production": {
 
-    "username": "haticeyorukoglu",
+    "username": "jakubsoroka",
     "password": null,
     "database": "database_production",
     "host": "127.0.0.1",
