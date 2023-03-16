@@ -26,11 +26,9 @@ export default {
     studentDetails: null,
     courses: null
   }),
-  props: {
-    studentId: Number
-  },
   mounted() {
-    this.studentDetails(), this.getCourses()
+    let studentId = this.$route.params.studentId
+    this.studentDetails(studentId), this.getCourses(studentId)
   },
   methods: {
     async getStudentDetails(studentId) {
