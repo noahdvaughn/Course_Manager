@@ -1,14 +1,8 @@
-const { Course } = require('../models')
 const { Student } = require('../models')
-const { Student_Course } = require('../models')
-const EX = async (req, res) => {
-  try {
-  } catch (error) {}
-}
 
 const CreateStudent = async (req, res) => {
   try {
-    const response = await Student.create({ ...req, body })
+    const response = await Student.create({ ...req.body })
     res.status(200).send(response)
   } catch (error) {
     throw error
@@ -29,7 +23,9 @@ const GetStudentById = async (req, res) => {
       where: { id: student_id }
     })
     res.send(student)
-  } catch (error) {}
+  } catch (error) {
+    throw error
+  }
 }
 
 const DeleteStudent = async (req, res) => {

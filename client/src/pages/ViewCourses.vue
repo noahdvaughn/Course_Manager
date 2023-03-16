@@ -26,6 +26,7 @@ export default {
         async getAllCourses() {
             const res = await axios.get('http://localhost:3001/api/course/get-all-courses')
             console.log(res.data);
+
             this.courses = res.data
         }
     }

@@ -14,3 +14,4 @@ Router.delete(
   '/delete-student-course/:studentcourse_id',
   controller.DeleteStudent_Course
 )
+module.exports = Router
