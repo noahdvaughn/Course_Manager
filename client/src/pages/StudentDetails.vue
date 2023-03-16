@@ -23,28 +23,26 @@ import axios from 'axios'
 export default {
   name: 'StudentDetails',
   data: () => ({
-    studentDetails: null,
-    courses: null
+    studentDetails: [],
+    courses: []
   }),
   mounted() {
-    let student_id = this.$route.params.student_id
-    //console.log(this.$route.params.studentId)
-
-    this.getStudentDetails(student_id)
-    this.getCourses(student_id)
+    let studentId = parseInt(this.$route.params.student_id)
+    this.getStudentDetails(studentId)
+    this.getCourses(studentId)
   },
   methods: {
-    async getStudentDetails(student_id) {
+    async getStudentDetails(studentId) {
       const response = await axios.get(
-        `http://localhost:3001/api/student/get-student-by-id/${student_id}`
+        `http://localhost:3001/api/student/get-student-by-id/${studentId}`
       )
       this.studentDetails = response.data
+      console.log(response.data)
     },
-    async getCourses(student_id) {
+    async getCourses(studentId) {
       const response = await axios.get(
-        `https://localhost:3001/api/student_course/get-student-course-by-student/${student_id}`
+        `http://localhost:3001/api/student_course/get-student-course-by-student/${studentId}`
       )
-      //console.log(response.data)
       this.courses = response.data
     }
   }
