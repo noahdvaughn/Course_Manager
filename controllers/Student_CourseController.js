@@ -2,7 +2,7 @@ const { Student_Course } = require('../models')
 
 const CreateStudent_Course = async (req, res) => {
   try {
-    const response = await Student_Course.create({ ...req, body })
+    const response = await Student_Course.create({ ...req.body })
     res.status(200).send(response)
   } catch (error) {
     throw error
@@ -21,7 +21,7 @@ const GetStudent_CourseByCourseId = async (req, res) => {
 }
 const GetStudent_CourseByStudentId = async (req, res) => {
   try {
-    let student_id = parseInt(req.params.course_id)
+    let student_id = parseInt(req.params.student_id)
     const course = await Student_Course.findAll({
       where: { studentId: student_id }
     })
