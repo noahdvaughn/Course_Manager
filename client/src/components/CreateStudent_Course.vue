@@ -22,6 +22,7 @@ methods: {
             console.log(res.data);
             this.courses = res.data
   }
+  
 }
 }
 </script>
