@@ -27,20 +27,24 @@ export default {
     courses: null
   }),
   mounted() {
-    let studentId = this.$route.params.studentId
-    this.studentDetails(studentId), this.getCourses(studentId)
+    let student_id = this.$route.params.student_id
+    //console.log(this.$route.params.studentId)
+
+    this.getStudentDetails(student_id)
+    this.getCourses(student_id)
   },
   methods: {
-    async getStudentDetails(studentId) {
+    async getStudentDetails(student_id) {
       const response = await axios.get(
-        `https://localhost:3001/api/student/get-student-by-id/${studentId}`
+        `http://localhost:3001/api/student/get-student-by-id/${student_id}`
       )
       this.studentDetails = response.data
     },
-    async getCourses(studentId) {
+    async getCourses(student_id) {
       const response = await axios.get(
-        `https://localhost:3001/api/student_course/get-student-course-by-student/${studentId}`
+        `https://localhost:3001/api/student_course/get-student-course-by-student/${student_id}`
       )
+      //console.log(response.data)
       this.courses = response.data
     }
   }
