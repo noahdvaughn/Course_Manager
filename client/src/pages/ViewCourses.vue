@@ -19,7 +19,7 @@ export default {
     },
     methods: {
         async getAllCourses() {
-            const res = await axios.get('/api/courses')
+            const res = await axios.get('http://localhost:3001/api/get-all-courses')
             this.courses = res.data
         }
     }

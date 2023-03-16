@@ -1,5 +1,3 @@
-const { Course } = require('../models')
-const { Student } = require('../models')
 const { Student_Course } = require('../models')
 
 const CreateStudent_Course = async (req, res) => {
