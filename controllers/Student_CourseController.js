@@ -34,9 +34,9 @@ const GetStudent_CourseByStudentId = async (req, res) => {
 }
 const DeleteStudent_Course = async (req, res) => {
   try {
-    let course_id = parseInt(req.params.course_id)
-    await Student_Course.destroy({ where: { id: course_id } })
-    res.send({ message: `Deleted course with an ID of ${course_id}!` })
+    let studentcourse_id = parseInt(req.params.studentcourse_id)
+    await Student_Course.destroy({ where: { id: studentcourse_id } })
+    res.send({ message: `Deleted course with an ID of ${studentcourse_id}!` })
   } catch (error) {
     throw error
   }
