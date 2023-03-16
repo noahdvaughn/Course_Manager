@@ -11,7 +11,6 @@
           <h2>{{ course.course_name }}</h2>
           <h2>{{ course.letter }}</h2>
         </div>
-
       </div>
     </section>
   </div>
@@ -34,13 +33,16 @@ export default {
   },
   methods: {
     async getStudentDetails(studentId) {
-      const response = await axios.get(`http://localhost:3001/api/student/get-student-by-id/${studentId}`)
+      const response = await axios.get(
+        `http://localhost:3001/api/student/get-student-by-id/${studentId}`
+      )
       this.studentDetails = response.data
-      console.log(response.data);
+      console.log(response.data)
     },
     async getCourses(studentId) {
       const response = await axios.get(
-        `http://localhost:3001/api/student_course/get-student-course-by-student/${studentId}`)
+        `http://localhost:3001/api/student_course/get-student-course-by-student/${studentId}`
+      )
       this.courses = response.data
     }
   }
