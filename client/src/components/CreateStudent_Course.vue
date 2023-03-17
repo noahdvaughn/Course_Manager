@@ -20,17 +20,31 @@
 import axios from 'axios';
 // import CourseCard from './CourseCard.vue';
 export default {
-  data: () => ({
-    courses: [],
-    courseSelected: null,
-    selectedId: 1,
-    grade: 'A',
-    mathNum: 0,
-    avgNum: 0
-  }),
-  props: ['student_id', 'student_name'],
-  mounted() {
-    this.getCourses()
+
+data: () => ({
+  courses: [],
+  courseSelected: null,
+  selectedId: 1,
+  grade: 'A',
+  mathNum: 0,
+  avgNum: 0,
+  student_name: ''
+}),
+props: {
+  student_id: Number,
+  my_student_name: String
+},
+mounted() {
+  this.student_name = this.my_student_name
+        console.log(this.my_student_name)
+        this.getCourses()
+        
+    },
+methods: {
+  async getCourses(){
+    const res = await axios.get('http://localhost:3001/api/course/get-all-courses')
+            this.courses = res.data
+            
 
   },
   methods: {

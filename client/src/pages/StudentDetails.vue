@@ -12,7 +12,7 @@
       </div>
     </section>
     <div v-if="student_id">
-      <CreateStudent_Course  :student_id="student_id" :student_name="student_name"/>
+      <CreateStudent_Course  :my_student_name="studentDetails[0].name"/>
     </div>
   </div>
 </template>
@@ -22,47 +22,57 @@
 
 import CreateStudent_Course from '@/components/CreateStudent_Course.vue'
 import axios from 'axios'
+// import { timingSafeEqual } from 'crypto';
 export default {
-    name: "StudentDetails",
-    data: () => ({
-        studentDetails: [],
-        courses: [],
-        student_id: null,
-        student_name: String,
-        gpaNum: 0
-    }),
-    mounted() {
-        let studentId = parseInt(this.$route.params.student_id);
-        this.getStudentDetails(studentId);
-        this.getCourses(studentId)
-        this.student_id = studentId;
-        if (this.courses !== []){
-          console.log(this.courses)
-          this.doMath(this.courses);
-        }
-    },
-    methods: {
-        async getStudentDetails(studentId) {
-            const response = await axios.get(`http://localhost:3001/api/student/get-student-by-id/${studentId}`);
-            this.studentDetails = response.data;
-            this.student_name = this.studentDetails.name
-        },
-        async getCourses(studentId) {
-            const response = await axios.get(`http://localhost:3001/api/student_course/get-student-course-by-student/${studentId}`);
-            this.courses = response.data;
-            
-        },
-        doMath(courses){
-          // let courseArray = this.courses
-          console.log(courses)
 
-          courses.forEach((e)=>{
-            this.gpaNum += e.score
-          })
-          this.gpaNum = this.gpaNum / courses.length
-          console.log(this.gpaNum)
-        }
+  
+  name: "StudentDetails",
+  data: () => ({
+    studentDetails: [],
+    courses: [],
+    my_student_id: null,
+    gpaNum: 0,
+    student_name: ''
+  }),
+  mounted() {
+    let studentId = parseInt(this.$route.params.student_id);
+    this.getStudentDetails(studentId);
+    this.getCourses(studentId)
+    this.student_id = studentId;
+    
+  },
+  updated(){
+    if (this.studentDetails[0]){
+      this.my_student_name = this.studentDetails[0].name
+      console.log(this.my_student_name)
+    }
+    if (this.courses !== []){
+      // console.log(this.courses)
+      this.doMath(this.courses);
+    }
+
+  },
+  methods: {
+    async getStudentDetails(studentId) {
+      const response = await axios.get(`http://localhost:3001/api/student/get-student-by-id/${studentId}`);
+      this.studentDetails = response.data;
     },
-    components: { CreateStudent_Course }
+    async getCourses(studentId) {
+      const response = await axios.get(`http://localhost:3001/api/student_course/get-student-course-by-student/${studentId}`);
+      this.courses = response.data;
+    },
+    doMath(courses){
+      // let courseArray = this.courses
+      // console.log(courses)
+      
+      courses.forEach((e)=>{
+        this.gpaNum += e.score
+      })
+      this.gpaNum = this.gpaNum / courses.length
+      // console.log(this.gpaNum)
+    }
+  },
+  components: { CreateStudent_Course }
 }
+
 </script>
