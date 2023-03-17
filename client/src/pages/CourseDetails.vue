@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="studenttitle">Course Details</h1>
+    <h1 class="coursetitle">Course Details</h1>
     <h3 class="who" v-if="course[0]">{{ course[0].name }}</h3>
     <div v-for="student in students" :key="student.id">
       <h3 class="letter">{{ student.student_name }} - {{ student.letter }}</h3>
@@ -54,6 +54,7 @@ export default {
 </script>
 
 <style>
+
 .letter {
   color: #5d45f6;
   font-size: 20px;
@@ -63,6 +64,8 @@ export default {
   margin: 2px;
   font-weight: bold;
   width: 100px;
+  height: 100px;
   text-align: center;
 }
+
 </style>

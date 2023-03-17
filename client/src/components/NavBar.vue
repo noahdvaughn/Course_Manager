@@ -26,7 +26,7 @@ nav {
 
 nav a {
   margin: 1em;
-  color: rgb(194, 235, 82);
+  color: white;
   text-decoration: none;
   font-weight: 900;
   cursor: pointer;
