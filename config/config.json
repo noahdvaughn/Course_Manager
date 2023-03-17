@@ -1,7 +1,6 @@
 {
   "development": {
-
-    "username": "haticeyorukoglu",
+    "username": "jakubsoroka",
 
     "password": null,
     "database": "course_manager_development",
@@ -9,8 +8,7 @@
     "dialect": "postgres"
   },
   "test": {
-
-    "username": "haticeyorukoglu",
+    "username": "jakubsoroka",
 
     "password": null,
     "database": "database_test",
@@ -18,8 +16,8 @@
     "dialect": "postgres"
   },
   "production": {
+    "username": "jakubsoroka",
 
-    "username": "haticeyorukoglu",
     "password": null,
     "database": "database_production",
     "host": "127.0.0.1",

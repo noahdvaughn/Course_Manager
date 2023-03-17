@@ -24,6 +24,7 @@ import CreateStudent_Course from '@/components/CreateStudent_Course.vue'
 import axios from 'axios'
 // import { timingSafeEqual } from 'crypto';
 export default {
+
   
   name: "StudentDetails",
   data: () => ({
