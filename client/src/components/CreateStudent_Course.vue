@@ -28,7 +28,9 @@ data: () => ({
   grade: 'A',
   mathNum: 0,
   avgNum: 0,
-  student_name: ''
+  student_name: '',
+  changed: false
+
 }),
 props: {
   student_id: Number,
@@ -71,6 +73,7 @@ mounted() {
         studentId: this.student_id, courseId: this.selectedId
       })
       console.log(res)
+      this.changed = true
     },
     changeEnrolled(e) {
 

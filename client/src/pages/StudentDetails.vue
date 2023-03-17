@@ -6,7 +6,7 @@
         <div v-for="detail in studentDetails" :key="detail.id">
           <h3>{{ detail.name }}-&nbsp;{{ detail.email }}</h3>
         </div>
-        <h3>Average Gpa: {{ this.gpaNum }}</h3>
+        <h3 v-if="gpaNum">Average Gpa: {{ this.gpaNum }}</h3>
         <div v-for="course in courses" :key="course.id" >
           <h2 @click="selectCourse(course.courseId)">{{ course.course_name }}:&nbsp;{{ course.letter }}</h2>
         </div>
