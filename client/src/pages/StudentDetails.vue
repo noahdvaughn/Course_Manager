@@ -4,18 +4,22 @@
       <div>
         <h1>Student Details</h1>
         <div class="studentdetail">
-        <div v-for="detail in studentDetails" :key="detail.id" >
-          <h3 class="who">>{{ detail.name }}-&nbsp;{{ detail.email }}</h3>
-        </div>
-        <h3 v-if="gpaNum">Average Gpa: {{ this.gpaNum }}</h3>
-        <div v-for="course in courses" :key="course.id" >
-          <h2 @click="selectCourse(course.courseId)">{{ course.course_name }}:&nbsp;{{ course.letter }}</h2>
+          <div v-for="detail in studentDetails" :key="detail.id" class="who">
+            <h2>{{ detail.name }}</h2>
+            <h2>{{ detail.email }}</h2>
+            <h2 v-if="gpaNum">GPA: {{ this.gpaNum }}</h2>
+            <h2>Courses</h2>
+            <div v-for="course in courses" :key="course.id">
+              <h2 @click="selectCourse(course.courseId)">{{ course.course_name }}:&nbsp;{{ course.letter }}</h2>
+            </div>
           </div>
+
+
         </div>
       </div>
     </section>
     <div v-if="student_id">
-      <CreateStudent_Course  :student_id="student_id" :my_student_name="studentDetails[0].name"/>
+      <CreateStudent_Course :student_id="student_id" :my_student_name="studentDetails[0].name" />
     </div>
   </div>
 </template>
@@ -63,20 +67,16 @@ export default {
       this.courses = response.data;
       console.log(this.courses)
     },
-    doMath(courses){
+    doMath(courses) {
       let counter = 0
-      courses.forEach((e)=>{
+      courses.forEach((e) => {
         counter += parseInt(e.score)
       })
       this.gpaNum = counter / courses.length
     },
     selectCourse(courseId) {
-        this.$router.push(`/courses/${courseId}`)
+      this.$router.push(`/courses/${courseId}`)
     },
-    async DeleteCourse(courseId){
-      const response = await axios.delete(`http://localhost:3001/api/student_course/delete-student-course/${courseId}`)
-      console.log(response)
-    }
   },
   components: { CreateStudent_Course }
 }
@@ -85,21 +85,17 @@ export default {
 <style>
 .studenttitle {
   color: #5d45f6;
-  margin-top: 50px;
-  font-size: 40px;
   text-align: left;
-  margin-left: 20px;
-}
-.studentdetail {
 }
 
 .who {
-  margin-top: 20px;
-  margin-left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 2px solid rgb(73, 73, 73);
+  border-radius: 20px;
   color: #5d45f6;
-  text-decoration: none;
-  font-weight: 900;
-  text-align: left;
   font-size: 25px;
 }
 </style>

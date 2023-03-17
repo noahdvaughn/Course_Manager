@@ -37,7 +37,7 @@ export default {
   width: 200px;
 }
 .info-wrapper:hover {
-  background-color: rgba(194, 235, 82, 0.372);
+  background-color: rgb(211, 218, 255);
   transform: scale(1.1);
 }
 h3 {

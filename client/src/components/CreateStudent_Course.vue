@@ -119,14 +119,14 @@ p {
   border: 2px solid #5d45f6;
   border-radius: 3px;
   margin-left: 2px;
-  background-color: rgba(194, 235, 82, 0.372);
+  background-color: rgb(211, 218, 255);
   font-weight: bold;
   width: 100px;
   /* height: 20px; */
   cursor: pointer;
 }
 .delete {
-  background-color: rgba(194, 235, 82, 0.372);
+  background-color: rgb(211, 218, 255);
   color: #5d45f6;
   font-weight: bold;
   padding: 0.3em;
