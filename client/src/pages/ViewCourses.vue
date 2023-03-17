@@ -4,7 +4,7 @@
         <div  v-for="course in courses" :key="course.id">
             <CourseCard :name="course.name" />
         </div>
-        <CreateCourse/>
+        <CreateCourse />
     </div>
 </template>
   
