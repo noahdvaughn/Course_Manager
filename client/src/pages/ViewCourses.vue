@@ -1,7 +1,7 @@
 <template>
     <div v-if="courses">
         <h1>View Courses</h1>
-        <div v-for="course in courses" :key="course.id">
+        <div  v-for="course in courses" :key="course.id">
             <CourseCard :name="course.name" />
         </div>
         <CreateCourse />
