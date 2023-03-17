@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div key="componentKey">
     <section>
       <div>
         <h1>Student Details</h1>
@@ -15,7 +15,7 @@
       </div>
     </section>
     <div v-if="student_id">
-      <CreateStudent_Course  :student_id="student_id" :my_student_name="studentDetails[0].name"/>
+      <CreateStudent_Course  :student_id="student_id" :my_student_name="studentDetails[0].name" @hitEnrolled="hitEnrolled"/>
     </div>
   </div>
 </template>
@@ -33,7 +33,8 @@ export default {
     courses: [],
     my_student_id: null,
     gpaNum: 0,
-    student_name: ''
+    student_name: '',
+    changed: 0
   }),
   mounted() {
     let studentId = parseInt(this.$route.params.student_id)
@@ -73,9 +74,9 @@ export default {
     selectCourse(courseId) {
         this.$router.push(`/courses/${courseId}`)
     },
-    async DeleteCourse(courseId){
-      const response = await axios.delete(`http://localhost:3001/api/student_course/delete-student-course/${courseId}`)
-      console.log(response)
+    hitEnrolled(){
+      console.log('hit')
+      this.$forceUpdate()
     }
   },
   components: { CreateStudent_Course }

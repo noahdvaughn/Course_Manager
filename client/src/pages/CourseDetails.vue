@@ -3,7 +3,7 @@
     <h1 class="studenttitle">Course Details</h1>
     <h3 class="who" v-if="course[0]">{{ course[0].name }}</h3>
     <div v-for="student in students" :key="student.id">
-      <h3 class="letter">{{ student.studentId }} - {{ student.letter }}</h3>
+      <h3 class="letter">{{ student.student_name }} - {{ student.letter }}</h3>
     </div>
   </div>
   <div>
