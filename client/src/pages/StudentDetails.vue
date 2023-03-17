@@ -2,15 +2,14 @@
   <div >
     <section>
       <div>
-        <h1>Student Details</h1>
         <div class="studentdetail" >
           <div v-for="detail in studentDetails" :key="detail.id" class="who">
-            <h1>{{ detail.name }}</h1>
-            <h3>{{ detail.email }}</h3>
+            <h1 style="font-size: 40px;">{{ detail.name }}</h1>
+            <h3 style="color: darkslategrey;">{{ detail.email }}</h3>
             <h1 v-if="gpaNum">GPA: {{ this.gpaNum }}</h1>
             <h2>Courses:</h2>
             <div v-for="course in courses" :key="course.id">
-              <h2  @click="selectCourse(course.courseId)">{{ course.course_name }}:&nbsp;{{ course.letter }}</h2>
+              <h2 style="color: orange;" @click="selectCourse(course.courseId)">{{ course.course_name }}:&nbsp;{{ course.letter }}</h2>
             </div>
           </div>
         </div>
@@ -99,7 +98,7 @@ export default {
   border-radius: 20px;
   color: #5d45f6;
   max-width: 800px;
-  margin: auto;
+  margin: 20px auto;
 }
 
 </style>
