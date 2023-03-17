@@ -28,7 +28,9 @@ data: () => ({
   grade: 'A',
   mathNum: 0,
   avgNum: 0,
-  student_name: ''
+  student_name: '',
+  changed: false
+
 }),
 props: {
   student_id: Number,
@@ -40,13 +42,6 @@ mounted() {
         this.getCourses()
         
     },
-methods: {
-  async getCourses(){
-    const res = await axios.get('http://localhost:3001/api/course/get-all-courses')
-            this.courses = res.data
-            
-
-  },
   methods: {
     async getCourses() {
       const res = await axios.get('http://localhost:3001/api/course/get-all-courses')
@@ -71,7 +66,6 @@ methods: {
         case 'F':
           score = 0;
           break;
-
       }
 
       const res = await axios.post('http://localhost:3001/api/student_course/create-student-course', {
@@ -79,6 +73,7 @@ methods: {
         studentId: this.student_id, courseId: this.selectedId
       })
       console.log(res)
+      this.changed = true
     },
     changeEnrolled(e) {
 
@@ -92,7 +87,7 @@ methods: {
 
     }
 
-  },
-  components: {}
+  }
 }
+
 </script>
