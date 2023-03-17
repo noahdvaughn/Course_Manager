@@ -1,5 +1,6 @@
 {
   "development": {
+
     "username": "haticeyorukoglu",
 
     "password": null,
@@ -8,6 +9,7 @@
     "dialect": "postgres"
   },
   "test": {
+
     "username": "haticeyorukoglu",
 
     "password": null,
@@ -16,6 +18,7 @@
     "dialect": "postgres"
   },
   "production": {
+
     "username": "haticeyorukoglu",
     "password": null,
     "database": "database_production",
