@@ -30,6 +30,7 @@ export default {
   border-bottom-right-radius: 10px;
   border-top-left-radius: 10px;
   transition: all 0.2s ease-in-out;
+  width: 450px;
 }
 
 .list {
