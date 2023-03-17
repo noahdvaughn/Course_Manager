@@ -3,12 +3,14 @@
     <h1>Welcome to the Course Manager!</h1>
     <h2><i>An app to keep track of your students and their grades.</i></h2>
     <div class="buttons">
+
       <button class="view" @click="$router.push('/courses')">
         View Courses
       </button>
       <button class="view" @click="$router.push('/students')">
         View Students
       </button>
+
     </div>
   </div>
 </template>
