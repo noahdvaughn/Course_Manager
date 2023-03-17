@@ -30,8 +30,7 @@ data: () => ({
   grade: 'A',
   mathNum: 0,
   avgNum: 0,
-  student_name: '',
-  changed: false
+  student_name: ''
 
 }),
 props: {
@@ -78,20 +77,16 @@ mounted() {
       })
       console.log(res)
       this.hitEnrolled()
-      this.changed = true
     },
     changeEnrolled(e) {
-      
       this.selectedId = parseInt(e.target.value)
       this.mathNum = e.target.selectedIndex
-      console.log(this.grade)
     },
     async DeleteStudent() {
       await axios.delete(`http://localhost:3001/api/student/delete-student/${this.student_id}`)
     },
     hitEnrolled(){
         this.$emit('hitEnrolled')
-
       },
     components: {}
   }
@@ -122,14 +117,14 @@ p {
   border: 2px solid #5d45f6;
   border-radius: 3px;
   margin-left: 2px;
-  background-color: rgba(194, 235, 82, 0.372);
+  background-color: rgb(211, 218, 255);
   font-weight: bold;
   width: 100px;
   /* height: 20px; */
   cursor: pointer;
 }
 .delete {
-  background-color: rgba(194, 235, 82, 0.372);
+  background-color: rgb(211, 218, 255);
   color: #5d45f6;
   font-weight: bold;
   padding: 0.3em;
