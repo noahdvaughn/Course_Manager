@@ -3,12 +3,14 @@
     <section>
       <div>
         <h1>Student Details</h1>
-        <div v-for="detail in studentDetails" :key="detail.id">
-          <h3>{{ detail.name }}-&nbsp;{{ detail.email }}</h3>
+        <div class="studentdetail">
+        <div v-for="detail in studentDetails" :key="detail.id" >
+          <h3 class="who">>{{ detail.name }}-&nbsp;{{ detail.email }}</h3>
         </div>
         <h3 v-if="gpaNum">Average Gpa: {{ this.gpaNum }}</h3>
         <div v-for="course in courses" :key="course.id" >
           <h2 @click="selectCourse(course.courseId)">{{ course.course_name }}:&nbsp;{{ course.letter }}</h2>
+          </div>
         </div>
       </div>
     </section>
@@ -25,9 +27,7 @@ import CreateStudent_Course from '@/components/CreateStudent_Course.vue'
 import axios from 'axios'
 // import { timingSafeEqual } from 'crypto';
 export default {
-
-  
-  name: "StudentDetails",
+  name: 'StudentDetails',
   data: () => ({
     studentDetails: [],
     courses: [],
@@ -36,28 +36,29 @@ export default {
     student_name: ''
   }),
   mounted() {
-    let studentId = parseInt(this.$route.params.student_id);
-    this.getStudentDetails(studentId);
+    let studentId = parseInt(this.$route.params.student_id)
+    this.getStudentDetails(studentId)
     this.getCourses(studentId)
-    this.student_id = studentId;
-    
+    this.student_id = studentId
   },
-  updated(){
-    if (this.studentDetails[0]){
+  updated() {
+    if (this.studentDetails[0]) {
       this.my_student_name = this.studentDetails[0].name
     }
-    if (this.courses !== []){
+    if (this.courses !== []) {
       // console.log(this.courses)
-      this.doMath(this.courses);
+      this.doMath(this.courses)
     }
-
   },
   methods: {
     async getStudentDetails(studentId) {
-      const response = await axios.get(`http://localhost:3001/api/student/get-student-by-id/${studentId}`);
-      this.studentDetails = response.data;
+      const response = await axios.get(
+        `http://localhost:3001/api/student/get-student-by-id/${studentId}`
+      )
+      this.studentDetails = response.data
     },
     async getCourses(studentId) {
+
       const response = await axios.get(`http://localhost:3001/api/student_course/get-student-course-by-student/${studentId}`);
       this.courses = response.data;
       console.log(this.courses)
@@ -79,5 +80,26 @@ export default {
   },
   components: { CreateStudent_Course }
 }
-
 </script>
+
+<style>
+.studenttitle {
+  color: #5d45f6;
+  margin-top: 50px;
+  font-size: 40px;
+  text-align: left;
+  margin-left: 20px;
+}
+.studentdetail {
+}
+
+.who {
+  margin-top: 20px;
+  margin-left: 20px;
+  color: #5d45f6;
+  text-decoration: none;
+  font-weight: 900;
+  text-align: left;
+  font-size: 25px;
+}
+</style>
