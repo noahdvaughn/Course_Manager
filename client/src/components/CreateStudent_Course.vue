@@ -40,13 +40,6 @@ mounted() {
         this.getCourses()
         
     },
-methods: {
-  async getCourses(){
-    const res = await axios.get('http://localhost:3001/api/course/get-all-courses')
-            this.courses = res.data
-            
-
-  },
   methods: {
     async getCourses() {
       const res = await axios.get('http://localhost:3001/api/course/get-all-courses')
@@ -71,7 +64,6 @@ methods: {
         case 'F':
           score = 0;
           break;
-
       }
 
       const res = await axios.post('http://localhost:3001/api/student_course/create-student-course', {
@@ -92,7 +84,7 @@ methods: {
 
     }
 
-  },
-  components: {}
+  }
 }
+
 </script>

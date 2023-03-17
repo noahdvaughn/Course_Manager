@@ -6,13 +6,14 @@
         <div v-for="detail in studentDetails" :key="detail.id">
           <h3>{{ detail.name }}-&nbsp;{{ detail.email }}</h3>
         </div>
-        <div v-for="course in courses" :key="course.id">
-          <h2>{{ course.course_name }}:&nbsp;{{ course.letter }}</h2>
+        <h3>Average Gpa: {{ this.gpaNum }}</h3>
+        <div v-for="course in courses" :key="course.id" >
+          <h2 @click="selectCourse(course.courseId)">{{ course.course_name }}:&nbsp;{{ course.letter }}</h2>
         </div>
       </div>
     </section>
     <div v-if="student_id">
-      <CreateStudent_Course  :my_student_name="studentDetails[0].name"/>
+      <CreateStudent_Course  :student_id="student_id" :my_student_name="studentDetails[0].name"/>
     </div>
   </div>
 </template>
@@ -44,7 +45,6 @@ export default {
   updated(){
     if (this.studentDetails[0]){
       this.my_student_name = this.studentDetails[0].name
-      console.log(this.my_student_name)
     }
     if (this.courses !== []){
       // console.log(this.courses)
@@ -60,16 +60,21 @@ export default {
     async getCourses(studentId) {
       const response = await axios.get(`http://localhost:3001/api/student_course/get-student-course-by-student/${studentId}`);
       this.courses = response.data;
+      console.log(this.courses)
     },
     doMath(courses){
-      // let courseArray = this.courses
-      // console.log(courses)
-      
+      let counter = 0
       courses.forEach((e)=>{
-        this.gpaNum += e.score
+        counter += parseInt(e.score)
       })
-      this.gpaNum = this.gpaNum / courses.length
-      // console.log(this.gpaNum)
+      this.gpaNum = counter / courses.length
+    },
+    selectCourse(courseId) {
+        this.$router.push(`/courses/${courseId}`)
+    },
+    async DeleteCourse(courseId){
+      const response = await axios.delete(`http://localhost:3001/api/student_course/delete-student-course/${courseId}`)
+      console.log(response)
     }
   },
   components: { CreateStudent_Course }
