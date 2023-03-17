@@ -41,12 +41,12 @@ export default {
   transform: scale(1.1);
 }
 h3 {
-  margin: 1em;
+  
   color: #5d45f6;
   text-decoration: none;
-  font-weight: 900;
+  
   cursor: pointer;
-  text-align: left;
-  font-size: 15px;
+  
+  
 }
 </style>

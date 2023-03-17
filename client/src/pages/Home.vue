@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="homepage">
     <h1>Welcome to the Course Manager!</h1>
     <h2><i>An app to keep track of your students and their grades.</i></h2>
     <div class="buttons">
@@ -28,10 +28,18 @@ h2 {
   color: #5d45f6;
 }
 
+.homepage {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .buttons {
   display: flex;
   justify-content: center;
-  margin-top: 100px;
+  margin-top: 50px;
   gap: 40px;
 }
 

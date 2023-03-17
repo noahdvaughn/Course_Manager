@@ -5,16 +5,14 @@
         <h1>Student Details</h1>
         <div class="studentdetail">
           <div v-for="detail in studentDetails" :key="detail.id" class="who">
-            <h2>{{ detail.name }}</h2>
-            <h2>{{ detail.email }}</h2>
-            <h2 v-if="gpaNum">GPA: {{ this.gpaNum }}</h2>
-            <h2>Courses</h2>
+            <h1>{{ detail.name }}</h1>
+            <h3>{{ detail.email }}</h3>
+            <h1 v-if="gpaNum">GPA: {{ this.gpaNum }}</h1>
+            <h2>Courses:</h2>
             <div v-for="course in courses" :key="course.id">
               <h2 @click="selectCourse(course.courseId)">{{ course.course_name }}:&nbsp;{{ course.letter }}</h2>
             </div>
           </div>
-
-
         </div>
       </div>
     </section>
@@ -96,6 +94,8 @@ export default {
   border: 2px solid rgb(73, 73, 73);
   border-radius: 20px;
   color: #5d45f6;
-  font-size: 25px;
+  max-width: 800px;
+  margin: auto;
 }
+
 </style>
