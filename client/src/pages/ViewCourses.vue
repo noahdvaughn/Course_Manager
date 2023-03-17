@@ -1,7 +1,7 @@
 <template>
     <div v-if="courses">
         <h1>View Courses</h1>
-        <div  v-for="course in courses" :key="course.id">
+        <div  v-for="course in courses" :key="course.id" @click="selectCourse(course.id)">
             <CourseCard :name="course.name" />
         </div>
         <CreateCourse />
@@ -30,8 +30,12 @@ export default {
             const res = await axios.get('http://localhost:3001/api/course/get-all-courses')
             console.log(res.data);
             this.courses = res.data
-        }
+        },
+        selectCourse(courseId) {
+        this.$router.push(`/courses/${courseId}`)
     }
+    },
+    
 }
 </script>
   
