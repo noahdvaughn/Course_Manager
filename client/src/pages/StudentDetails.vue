@@ -28,6 +28,7 @@ export default {
         studentDetails: [],
         courses: [],
         student_id: null,
+        student_name: String,
         gpaNum: 0
     }),
     mounted() {
@@ -44,6 +45,7 @@ export default {
         async getStudentDetails(studentId) {
             const response = await axios.get(`http://localhost:3001/api/student/get-student-by-id/${studentId}`);
             this.studentDetails = response.data;
+            this.student_name = this.studentDetails.name
         },
         async getCourses(studentId) {
             const response = await axios.get(`http://localhost:3001/api/student_course/get-student-course-by-student/${studentId}`);
