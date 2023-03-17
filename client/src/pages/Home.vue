@@ -1,6 +1,6 @@
 <template>
   <div class="homepage">
-    <h1>Welcome to the Course Manager!</h1>
+    <h1>Welcome to Course Manager!</h1>
     <h2><i>An app to keep track of your students and their grades.</i></h2>
     <div class="buttons">
 

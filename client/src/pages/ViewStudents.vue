@@ -52,7 +52,7 @@ export default {
 }
 .viewstudents {
   width: 500px;
-  margin-top: 200px;
+  margin-top: 100px;
   padding: 10px;
 }
 </style>
