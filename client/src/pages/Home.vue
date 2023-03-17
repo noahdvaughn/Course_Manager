@@ -3,8 +3,12 @@
     <h1>Welcome to the Course Manager!</h1>
     <h2><i>An app to keep track of your students and their grades.</i></h2>
     <div class="buttons">
-      <button @click="$router.push('/courses')">View Courses</button>
-      <button @click="$router.push('/students')">View Students</button>
+      <button class="view" @click="$router.push('/courses')">
+        View Courses
+      </button>
+      <button class="view" @click="$router.push('/students')">
+        View Students
+      </button>
     </div>
   </div>
 </template>
@@ -34,7 +38,7 @@ h2 {
   gap: 40px;
 }
 
-button {
+.view {
   background-color: rgba(194, 235, 82, 0.372);
   color: #5d45f6;
   font-weight: bold;
