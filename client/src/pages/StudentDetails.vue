@@ -35,7 +35,10 @@ export default {
         this.getStudentDetails(studentId);
         this.getCourses(studentId)
         this.student_id = studentId;
-        this.doMath();
+        if (this.courses !== []){
+          console.log(this.courses)
+          this.doMath(this.courses);
+        }
     },
     methods: {
         async getStudentDetails(studentId) {
@@ -47,13 +50,14 @@ export default {
             this.courses = response.data;
             
         },
-        doMath(){
-          let courseArray = this.courses
-          console.log(courseArray)
-          courseArray.forEach((e)=>{
+        doMath(courses){
+          // let courseArray = this.courses
+          console.log(courses)
+
+          courses.forEach((e)=>{
             this.gpaNum += e.score
           })
-          this.gpaNum = this.gpaNum / courseArray.length
+          this.gpaNum = this.gpaNum / courses.length
           console.log(this.gpaNum)
         }
     },

@@ -67,8 +67,9 @@ methods: {
     console.log(res)
   },
   changeEnrolled(e){
+    
     this.selectedId = parseInt(e.target.value) 
-    this.mathNum = this.selectedId - 1
+    this.mathNum = e.target.selectedIndex
     console.log(this.grade)
   },
   async DeleteStudent(){
