@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1>Enter Student Information</h1>
-    <form class="createstudent" @submit="createStudent">
+    <h1 class="enter">Enter Student Information</h1>
+    <form @submit="createStudent">
       <div class="holder">
         <!-- <label>Name: </label> -->
         <input placeholder="Student Name" type="text" v-model="name" />
@@ -37,7 +37,10 @@ export default {
 }
 </script>
 <style>
-.createstudent {
+.enter {
+  color: #5d45f6;
+  margin-top: 100px;
+  font-size: 30px;
 }
 
 .holder {
@@ -52,7 +55,7 @@ input {
   font-size: 20px;
   border: 4px solid #5d45f6;
   border-radius: 10px;
-  cursor: pointer;
+  cursor: text;
 }
 
 .submit {

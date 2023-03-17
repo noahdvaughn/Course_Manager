@@ -1,21 +1,21 @@
 <template>
   <div>
     <p>Enroll Student in Class below:</p>
-    <select @change="changeEnrolled">
+    <select class="opt" @change="changeEnrolled">
       <option v-for="course in courses" :value="course.id" :key="course.id">
         {{ course.name }}
       </option>
     </select>
-    <select v-model="grade">
+    <select class="opt" v-model="grade">
       <option>A</option>
       <option>B</option>
       <option>C</option>
       <option>D</option>
       <option>F</option>
     </select>
-    <button @click="enrollInCourse">Enroll</button>
+    <button class="enrollclass" @click="enrollInCourse">Enroll</button>
   </div>
-  <button @click="DeleteStudent">Delete Student?</button>
+  <button class="delete" @click="DeleteStudent">Delete Student?</button>
 </template>
 
 <script>
@@ -103,3 +103,47 @@ export default {
   }
 }
 </script>
+
+<style>
+p {
+  color: #5d45f6;
+  margin-top: 50px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.opt {
+  color: #5d45f6;
+  font-size: 20px;
+  padding: 1px;
+  border: 2px solid #5d45f6;
+  border-radius: 3px;
+  margin: 2px;
+  font-weight: bold;
+}
+.enrollclass {
+  color: #5d45f6;
+  font-size: 20px;
+  padding: 0.1em;
+  border: 2px solid #5d45f6;
+  border-radius: 3px;
+  margin-left: 2px;
+  background-color: rgba(194, 235, 82, 0.372);
+  font-weight: bold;
+  width: 100px;
+  /* height: 20px; */
+  cursor: pointer;
+}
+.delete {
+  background-color: rgba(194, 235, 82, 0.372);
+  color: #5d45f6;
+  font-weight: bold;
+  padding: 0.3em;
+  /* width: 100px; */
+  /* height: 20px; */
+  font-size: 20px;
+  border: 3px solid #5d45f6;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 40px;
+}
+</style>
