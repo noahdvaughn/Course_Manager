@@ -31,7 +31,7 @@ export default {
 
 <style>
 .addcourse {
-  background-color: rgba(194, 235, 82, 0.372);
+  background-color: rgb(211, 218, 255);
   color: #5d45f6;
   font-weight: bold;
   padding: 0.2em;

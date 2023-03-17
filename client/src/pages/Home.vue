@@ -23,14 +23,9 @@ export default {
 <style>
 h1 {
   color: #5d45f6;
-  margin-top: 100px;
-  font-size: 40px;
 }
 h2 {
   color: #5d45f6;
-  margin: 100px;
-  font-size: 20px;
-  margin: 0 auto;
 }
 
 .buttons {
@@ -41,7 +36,7 @@ h2 {
 }
 
 .view {
-  background-color: rgba(194, 235, 82, 0.372);
+  background-color: rgb(211, 218, 255);
   color: #5d45f6;
   font-weight: bold;
   padding: 0.7em;
