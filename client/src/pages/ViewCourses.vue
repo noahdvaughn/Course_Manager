@@ -4,7 +4,7 @@
       <CreateCourse />
     </div>
     <div class="viewstudents">
-      <h1 class="enter">View Courses</h1>
+      <h1 class="enter">Courses</h1>
       <div
         v-for="course in courses"
         :key="course.id"

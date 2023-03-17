@@ -30,8 +30,7 @@ data: () => ({
   grade: 'A',
   mathNum: 0,
   avgNum: 0,
-  student_name: '',
-  changed: false
+  student_name: ''
 
 }),
 props: {
@@ -77,18 +76,17 @@ mounted() {
         studentId: this.student_id, courseId: this.selectedId
       })
       console.log(res)
-      this.changed = true
+      this.hitEnrolled()
     },
     changeEnrolled(e) {
-
       this.selectedId = parseInt(e.target.value)
       this.mathNum = e.target.selectedIndex
-      console.log(this.grade)
     },
     async DeleteStudent() {
-        await axios.delete(`http://localhost:3001/api/student/delete-student/${this.student_id}`)
-        this.$router.push(`/students`)
-
+      await axios.delete(`http://localhost:3001/api/student/delete-student/${this.student_id}`)
+    },
+    hitEnrolled(){
+        this.$emit('hitEnrolled')
       },
     components: {}
   }

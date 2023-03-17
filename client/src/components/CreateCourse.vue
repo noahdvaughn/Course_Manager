@@ -1,7 +1,7 @@
 <template>
   <div>
     <form @submit="CreateCourse">
-      <h1 class="enter">Add Course below</h1>
+      <h1 class="enter">Add a Course</h1>
       <input placeholder="Course Name" v-model="course_name" />
       <button class="addcourse">Add Course</button>
     </form>
@@ -30,6 +30,7 @@ export default {
 </script>
 
 <style>
+
 .addcourse {
   background-color: rgb(211, 218, 255);
   color: #5d45f6;
@@ -44,4 +45,5 @@ export default {
   margin-top: 20px;
   margin-left: 10px;
 }
+
 </style>
