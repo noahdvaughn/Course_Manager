@@ -1,6 +1,6 @@
 {
   "development": {
-    "username": "noahvaughn",
+    "username": "haticeyorukoglu",
 
     "password": null,
     "database": "course_manager_development",
@@ -8,7 +8,7 @@
     "dialect": "postgres"
   },
   "test": {
-    "username": "noahvaughn",
+    "username": "haticeyorukoglu",
 
     "password": null,
     "database": "database_test",
@@ -16,7 +16,7 @@
     "dialect": "postgres"
   },
   "production": {
-    "username": "noahvaughn",
+    "username": "haticeyorukoglu",
 
     "password": null,
     "database": "database_production",
