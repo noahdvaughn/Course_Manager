@@ -19,7 +19,7 @@ export default {
 
 nav {
   background: #5d45f6;
-  padding: 0, 5em;
+  padding: 0, 1em;
   display: flex;
   justify-content: flex-end;
 }
